@@ -1,3 +1,36 @@
+
+body {
+    background-image: url("../imgs/background-images/day.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+
+}
+#icon{
+  font-size:  50px;
+
+}
+input[type=text] {
+    width: 250px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    background-image: url('../imgs/search.png');
+    background-position: 10px 10px;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
 .weather-app {
     margin: auto;
     width: 300px;
