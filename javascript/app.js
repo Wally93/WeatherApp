@@ -7,6 +7,14 @@ var wind;
 var direction;
 
 
+function updateByGeo(lat, lon) {
+  var url = "http://api.openweathermap.org/data/2.5/weather?" +
+    "lat=" + lat +
+    "&lon=" + lon +
+    "&APPID=" + APPID;
+
+    sendRequest(url) ;
+}
 
 function updateByZip(zip) {
   var url = "http://api.openweathermap.org/data/2.5/weather?" +
@@ -62,10 +70,13 @@ function update(weather) {
     humidity.innerHTML = weather.humidity;
     loc.innerHTML = weather.loc;
     temp.innerHTML = weather.temp;
-    icon.src = "imgs/codes/" + weather.icon + ".png";
+    icon.innerHTML =  "<i  class='wi wi-owm-" + weather.icon + "'></i>"; //"imgs/codes/" + weather.icon + ".png";
 
 }
+function showPosition(position) {
+     updateByGeo(position.coords.latitude, position.coords.longitude);
 
+}
 window.onload = function () {
     temp = document.getElementById('temperature');
     loc = document.getElementById('location');
@@ -74,7 +85,17 @@ window.onload = function () {
     wind = document.getElementById('wind');
     direction = document.getElementById('direction');
 
+<<<<<<< HEAD
      updateByZip(40018);
+=======
+        if (navigator.geolocation) {
+               navigator.geolocation.getCurrentPosition(showPosition);
+
+        } else {
+             var zip = window.prompt("could not find your location, what is your Zipcode?");
+             updateByZip(zip);
+        }
+>>>>>>> origin/testing
     /*var weather =  {};
         weather.wind = 3.5;
         weather.direction = 'N';
