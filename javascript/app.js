@@ -74,7 +74,7 @@ window.onload = function () {
     wind = document.getElementById('wind');
     direction = document.getElementById('direction');
 
-     updateByZip("01007");
+     updateByZip(40018);
     /*var weather =  {};
         weather.wind = 3.5;
         weather.direction = 'N';
