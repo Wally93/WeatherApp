@@ -6,92 +6,112 @@ body {
     background-size: cover;
 
 
-}
-#icon{
-  font-size:  50px;
 
 }
+#weather-icon{
+   font-size:   300px;
+
+
+
+}
+#icon {
+  position: relative;
+  top: -40px;
+  padding: 5px;
+  margin: auto;
+  width: 20%;
+  height: 100%;
+  font-size-adjust: auto;
+  opacity: 0.7
+
+}
+
+#search {
+    margin: auto;
+    width: 50%;
+}
+.search {
+    margin: auto;
+    width: 45%;
+    padding: 10px
+
+}
+
 input[type=text] {
-    width: 250px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+    opacity: 0.5;
+    font-size: 18px;
     background-color: #fff;
     background-image: url('../imgs/search.png');
-    background-position: 10px 10px;
-    background-size: 25px;
+    background-position: 9px 9px;
+    background-size: 23px;
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+    color: #d7d7d7;
+    width:430px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+
 
 }
-
 input[type=text]:focus {
     width: 100%;
 }
 .weather-app {
-    margin: auto;
-    width: 300px;
-    height: 160px;
-    border: 1px solid black;
-    border-radius: 20px;
-    box-shadow: 10px 10px 50px #888888;
-    overflow: hidden;
-    text-align:center;
-    font-family: "Mono";
+color: white;
 }
 
 .left {
-    float: left;
-    background: #262626;
-    padding:10px;
-    width:150px;
-    height:100%;
-    color:white;
+
 }
 
 .temperature {
-    margin-top:30px;
-    margin-bottom:5px;
-    font-size:32px;
-    font-weight: bold;
-    width: 150px;
+margin: auto;
+width: 1000px;
+font-size: 50px;
+opacity: 0.75;
+text-align: center;
 }
 
 .location {
-    font-size: 18px;
-    width:100%;
-    width:150px;
+ position: center;
+  width:1000px;
+  margin: auto;
+  text-align: center;
+}
+
+#location {
+  font-size: 80px;
+  opacity: 0.7;
+
 }
 
 .right {
-    float: right;
-    width:130px;
-    height:100%;
+
 }
 
 .top {
-    height: 100px;
-    width: 100%;
-    margin: auto;
-    background: #cec;
+
 }
 
 .top img {
-    margin-top: 15px;
+
 }
 
 .bottom {
-    height: 70px;
-    background: #669999;
-    color: white;
-    font-weight: bold;
+
 }
 
 .humidity {
-    padding: 8px;
+  font-size:  100px
 }
 
 .wind {

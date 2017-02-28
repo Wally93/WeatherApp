@@ -15,38 +15,33 @@
   </head>
 
   <body>
-              <div class="weather-app">
-                <div class="left">
-          	    <div class="temperature"><span id="temperature">0</span>&deg;</div>
+    <div class="weather-app">
+
+
           	    <div class="location"><span id="location">Unknown</span></div>
-                </div>
-                <div class="right">
-          	<div class="top">
-                <div id="icon">
+
+                <div id="icon"></div>
+
+                <div class="temperature"><span id="temperature">0</span>&deg;&nbsp|&nbsp<span id="description"> description</span></div>
+                <div class="search">
+                      <form method="get" action="/search" id="search">
+                           <input name="q" type="text" size="40" placeholder="Search a location..." />
+                      </form>
 
                 </div>
-          	</div>
 
-          	  <div class="bottom">
-
-          	  <div class="humidity">
-          	    <img src="imgs/humidity.png" height="16px" />
-          	    <span id="humidity">0</span>%
-          	  </div>
+            	  <div class="humidity">
+                      <i id="wally" class="wi wi-humidity"></i>
+                	    <span id="humidity">0</span>%
+            	  </div>
 
           	  <div class="wind">
-          	    <span id="wind">0</span> mph <span id="direction">N</span>
+              	    <span id="wind">0</span> mph <span id="direction">N</span>
           	  </div>
 
-          	</div>
-                </div>
-              </div>
-              <div class="search">
-                 <input type="text" name="search" placeholder="Search your location...">
 
-              </div>
-              <div>
-                <i class="wi wi-owm-200"></i>
-              </div>
+
+    </div>
+
   </body>
 </html>

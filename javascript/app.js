@@ -5,7 +5,7 @@ var icon;
 var humidity;
 var wind;
 var direction;
-
+var description;
 
 function updateByGeo(lat, lon) {
   var url = "http://api.openweathermap.org/data/2.5/weather?" +
@@ -31,11 +31,13 @@ function sendRequest(url) {
             var data = JSON.parse(xmlhttp.responseText);
             var weather = {};
             weather.icon = data.weather[0].id;
+            weather.description = data.weather[0].main;
             weather.humidity = data.main.humidity;
             weather.wind = data.wind.speed;
             weather.direction = degreesToDirection(data.wind.deg);
             weather.loc = data.name;
             weather.temp = K2F(data.main.temp);
+
 
             update(weather);
         }
@@ -70,8 +72,8 @@ function update(weather) {
     humidity.innerHTML = weather.humidity;
     loc.innerHTML = weather.loc;
     temp.innerHTML = weather.temp;
-    icon.innerHTML =  "<i  class='wi wi-owm-" + weather.icon + "'></i>"; //"imgs/codes/" + weather.icon + ".png";
-
+    icon.innerHTML =  "<i id='weather-icon' class='wi wi-owm-" + weather.icon + "'></i>"; //"imgs/codes/" + weather.icon + ".png";
+    description.innerHTML = weather.description;
 }
 function showPosition(position) {
      updateByGeo(position.coords.latitude, position.coords.longitude);
@@ -84,8 +86,9 @@ window.onload = function () {
     humidity = document.getElementById('humidity');
     wind = document.getElementById('wind');
     direction = document.getElementById('direction');
+    description = document.getElementById('description');
 
-        if (navigator.geolocation) {
+        if (!navigator.geolocation) {
                navigator.geolocation.getCurrentPosition(showPosition);
 
         } else {
