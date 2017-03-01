@@ -7,22 +7,22 @@ body {
 
 
 
-}
-#weather-icon{
-   font-size:   300px;
-
-
 
 }
-#icon {
+
+#icon  i {
   position: relative;
-  top: -40px;
-  padding: 5px;
-  margin: auto;
-  width: 20%;
+  top: -25px;
+ line-height: 1;
+  text-align: center;
+ Move Up: -50px;
+  width: 100%;
   height: 100%;
-  font-size-adjust: auto;
-  opacity: 0.7
+  margin: auto;
+  font-size: 250px;
+  opacity: 0.7;
+
+
 
 }
 
@@ -31,27 +31,37 @@ body {
     width: 50%;
 }
 .search {
-    margin: auto;
+    margin:  auto;
     width: 45%;
     padding: 10px
 
 }
 
+#search {
+  text-align: center;
+
+}
+
 input[type=text] {
-    opacity: 0.5;
+   position: relative;
+   top: 25px;
+   margin:  auto;
+   width: 50%;
+    position: center;
+    opacity: 0.6;
     font-size: 18px;
     background-color: #fff;
     background-image: url('../imgs/search.png');
     background-position: 9px 9px;
     background-size: 23px;
     background-repeat: no-repeat;
-    color: #d7d7d7;
-    width:430px;
+    color: #fff;
+    width:100%;
     padding: 6px 15px 6px 35px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
     -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
@@ -62,36 +72,42 @@ input[type=text] {
 
 
 }
-input[type=text]:focus {
-    width: 100%;
-}
+
 .weather-app {
 color: white;
+font-family: "Times New Roman", Times, serif;
 }
 
 .left {
 
 }
+#temperature {
 
-.temperature {
-margin: auto;
-width: 1000px;
-font-size: 50px;
-opacity: 0.75;
-text-align: center;
 }
 
-.location {
- position: center;
-  width:1000px;
-  margin: auto;
+.temperature {
+  position: relative;
+  top: 25px;
+  padding-top: 15px;
+  margin:  auto;
+  width: 50%;
+  font-size: 60px;
+  opacity: 0.85;
   text-align: center;
 }
 
 #location {
-  font-size: 80px;
-  opacity: 0.7;
+ position: center;
+ width:50%;
+ margin: auto;
+ font-size: 85px;
+ opacity: 0.9;
 
+
+}
+
+.location {
+  text-align: center;
 }
 
 .right {
