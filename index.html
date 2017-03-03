@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang= "en">
+  <head>
+          <title>Weather App</title>
+
+          <link rel="stylesheet" href="css/normalize.css">
+          <link rel="stylesheet" type="text/css" href="css/styles.css" />
+          <link rel="stylesheet" href="css/weather-icons.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <!-- Latest compiled and minified CSS -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          <!-- Optional theme -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+          <!-- Latest compiled and minified JavaScript -->
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <script type="text/javascript" src="javascript/app.js"></script>
+  </head>
+
+  <body>
+    <div class="weather-app">
+
+
+          	    <div class="location"><span id="location">Unknown</span></div>
+
+                <div id="icon"></div>
+
+                <div class="temperature"><span id="temperature">0</span>&deg;&nbsp|&nbsp<span id="description"> description</span></div>
+                <div class="search">
+                      <form class="flexsearch--form" onSubmit="preventDefault">
+
+                                   <input id="search" class="flexsearch--input" type="search" placeholder="search">
+
+                                   <input class="flexsearch--submit" type="button" value="&#10140;" onclick="updateByZip()"/>
+                     </form>
+
+
+                </div>
+
+            	  <div class="humidity">
+                      <i id="wally" class="wi wi-humidity"></i>
+                	    <span id="humidity">0</span>%
+            	  </div>
+
+          	  <div class="wind">
+              	    <span id="wind">0</span> mph <span id="direction">N</span>
+                    <i id="weather-icon" class="wi wi-owm-202"></i>
+          	  </div>
+
+
+
+    </div>
+
+  </body>
+</html>
