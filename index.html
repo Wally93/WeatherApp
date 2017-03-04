@@ -26,10 +26,8 @@
 
                 <div class="temperature"><span id="temperature">0</span>&deg;&nbsp|&nbsp<span id="description"> description</span></div>
                 <div class="search">
-                      <form class="flexsearch--form" onSubmit="preventDefault">
-
-                                   <input id="search" class="flexsearch--input" type="search" placeholder="search">
-
+                      <form action="#" class="flexsearch--form" onsubmit="updateByZip() ; return false">
+                                   <input  id="search" class="flexsearch--input" type="search" placeholder="search">
                                    <input class="flexsearch--submit" type="button" value="&#10140;" onclick="updateByZip()"/>
                      </form>
 

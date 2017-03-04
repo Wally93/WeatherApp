@@ -18,6 +18,7 @@ function updateByGeo(lat, lon) {
     "&APPID=" + APPID;
 
     sendRequest(url) ;
+
 }
 
 
@@ -27,9 +28,9 @@ function updateByZip() {
   var url = "http://api.openweathermap.org/data/2.5/weather?" +
     "zip=" + zip +
     "&APPID=" + APPID;
+     sendRequest(url);
 
-    sendRequest(url) ;
-}
+    }
 
 function sendRequest(url) {
   var xmlhttp = new XMLHttpRequest ();
