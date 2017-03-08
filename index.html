@@ -26,25 +26,83 @@
 
                 <div class="temperature"><span id="temperature">0</span>&deg;&nbsp|&nbsp<span id="description"> description</span></div>
                 <div class="search">
-                      <form action="#" class="flexsearch--form" onsubmit="updateByZip() ; return false">
-                                   <input  id="search" class="flexsearch--input" type="search" placeholder="search">
-                                   <input class="flexsearch--submit" type="button" value="&#10140;" onclick="updateByZip()"/>
+                      <form id="form" action="#" class="flexsearch--form" onsubmit="updateByCity() ; return false">
+                                   <input  id="search" class="flexsearch--input" type="search" placeholder="search a country, city, or even a zipcode!">
                      </form>
-
-
                 </div>
-
-            	  <div class="humidity">
-                      <i id="wally" class="wi wi-humidity"></i>
-                	    <span id="humidity">0</span>%
-            	  </div>
-
-          	  <div class="wind">
-              	    <span id="wind">0</span> mph <span id="direction">N</span>
-                    <i id="weather-icon" class="wi wi-owm-202"></i>
-          	  </div>
+           <section>
 
 
+
+                  <div class="verticalLine">
+                        <ul>
+                      <li class="humidity1">
+                              <img  class ="humidity" src="imgs/humitity.png" >
+                              <span class ="humidity-description">Humitity: </span>
+                              <span id="humidity">0</span>%
+                    	</li>
+
+                      <li class= "pressure1">
+                                <img  class ="pressure" src="imgs/pressure.png" >
+                                <span class = "pressure-description">Pressure: </span>
+                               <span id="pressure"></span>
+                      </li>
+
+                      <li id="wind-speed">
+                                <img  class ="wind-speed" src="imgs/wind-speed.png" >
+                                <span class = "speed-description">Wind Speed: </span>
+                               <span id="windSpeed">0</span> <span id = "unit"> mph</span>
+                      </li>
+
+                      <li id= "wind-direction">
+                              <img  class ="wind-direction" src="imgs/wind-direction.png" >
+                              <span class = "direction-description">Wind Direction: </span>
+                              <span id="windDirection"></span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div><span id = "date">date</span></div>
+                      <div>
+                            <ul>
+                                  <li id ="day1">Day1</li>
+                                  <li id = "iconM"></li>
+                                  <li><span>Low</span><span>High</span></li>
+                                  <li><span id = "lowTempM">35</span><span id = "highTempM">60</span></li>
+                            </ul>
+                      </div>
+                      <div>
+                        <ul>
+                              <li id ="day2">Day2</li>
+                              <li id = "iconT"></li>
+                              <li><span>Low</span><span>High</span></li>
+                              <li><span id = "lowTempT">35</span><span id = "highTempT">60</span></li>
+                        </ul>
+                      </div>
+                      <div>
+                        <ul>
+                              <li id ="day3">Day3</li>
+                              <li id = "iconW"></li>
+                              <li><span>Low</span><span>High</span></li>
+                              <li><span id = "lowTempW"></span>35<span id = "highTempW">60</span></li>
+                        </ul>
+                      </div>
+                      <div>
+                        <ul>
+                              <li id ="day4">Day4</li>
+                              <li id = "iconTH"></li>
+                              <li><span>Low</span><span>High</span></li>
+                              <li><span id = "lowTempTH">35</span><span id = "highTempTH">60</span></li>
+                        </ul>
+                      </div>
+                      <div>
+                        <ul>
+                              <li id ="day5">Day5</li>
+                              <li id = "iconF"></li>
+                              <li><span>Low</span><span>High</span></li>
+                              <li><span id = "lowTempF">35</span><span id = "highTempF">60</span></li>
+                        </ul>
+                      </div>
+          </section>
 
     </div>
 
