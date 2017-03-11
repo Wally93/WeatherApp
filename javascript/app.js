@@ -1,4 +1,3 @@
-var APPID = "299c39b628ccaa2850c9f2a7e3060552";
 var temp;
 var loc;
 var icon;
@@ -8,14 +7,6 @@ var windSpeed;
 var description;
 var presssure;
 var precipitation;
-var date;
-var monday = "MON";
-var tuesday = "TUE";
-var wednesday = "WED";
-var thursday = "THU";
-var friday = "FRI";
-var saturday = "SAT";
-var sunday = "SUN";
 var icon1;
 var icon2;
 var icon3;
@@ -31,30 +22,45 @@ var high2;
 var high3;
 var high4;
 var high5;
-var latitude;
-var longitude;
+var day1;
+var day2;
+var day3;
+var day4;
+var day5;
+var date1;
+var date2;
+var date3;
+var date4;
+var date5;
+var condi1;
+var condi2;
+var condi3;
+var condi4;
+var condi5;
+
+
+
+
+
+
 
 
 
 
 function updateByGeo(lat, lon) {
-  var url = "http://api.openweathermap.org/data/2.5/forecast?" +
-    "lat=" + lat +
-    "&lon=" + lon +
-    "&APPID=" + APPID;
-
-    sendRequest(url) ;
+  var url = "http://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + lat + "," + lon +".json";
+  sendRequest(url) ;
 }
 
 
 function updateByCity() {
-  input = $("#search").val();
-  if (isNaN(input)) {
-    var url = "http://api.openweathermap.org/data/2.5/forecast?" +
-     "q=" + input +
-     "&APPID=" + APPID;
+  var input1 = $("#search1").val();
+  var input2 = $("#search2").val();
+  if (isNaN(input2)) {
+    var url = "http://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input1 + "," + input2 +".json";
      sendRequest(url);
-     document.getElementById("search").value = "";
+     document.getElementById("search1").value = "";
+     document.getElementById("search2").value = "";
   } else {
     updateByZip();
 
@@ -62,11 +68,11 @@ function updateByCity() {
 
 }
 function updateByZip() {
-  var url = "http://api.openweathermap.org/data/2.5/forecast?" +
-    "zip=" + input +
-    "&APPID=" + APPID;
+    input2 = $("#search2").val();
+  var url = "http://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input2 +".json";
      sendRequest(url);
-     document.getElementById("search").value = "";
+     document.getElementById("search1").value = "";
+     document.getElementById("search2").value = "";
    }
 
 
@@ -77,21 +83,46 @@ function sendRequest(url) {
   $.get( url, function adweather (data) {
 
                   var weather = {};
-                  weather.loc = data.city.name;
-                  weather.icon = data.list[0].weather[0].id;
-                  weather.description = data.list[0].weather[0].main;
-                  weather.temp = K2F(data.list[0].main.temp);
-                  weather.humidity = data.list[0].main.humidity;
-                  weather.pressure = data.list[0].main.pressure;
-                  weather.windSpeed = data.list[0].wind.speed;
-                  weather.windDirection = degreesToDirection(data.list[0].wind.deg);
-                  weather.date = data.list[0].dt_txt;
-                  weather.icon1 = data.list[7].weather[0].id;
-                  weather.icon2 = data.list[15].weather[0].id;
-                  weather.icon3 = data.list[22].weather[0].id;
-                  weather.icon4 = data.list[29].weather[0].id;
-                  weather.temp1 = 
-
+                  weather.date = data.current_observation.local_time_rfc822;
+                  weather.loc = data.current_observation.display_location.full;
+                  weather.temp = data.current_observation.temp_f;
+                  weather.icon = data.current_observation.icon;
+                  weather.description = data.current_observation.weather;
+                  weather.humidity = data.current_observation.relative_humidity;
+                  weather.pressure = data.current_observation.pressure_mb + " Millibar";
+                  weather.windSpeed = data.current_observation.wind_mph + " MPH";
+                  weather.windDirection = data.current_observation.wind_dir;
+                  weather.date = data.current_observation.local_time_rfc822;
+                  weather.day1 = data.forecast.simpleforecast.forecastday[1].date.weekday;
+                  weather.day2 = data.forecast.simpleforecast.forecastday[2].date.weekday;
+                  weather.day3 = data.forecast.simpleforecast.forecastday[3].date.weekday;
+                  weather.day4 = data.forecast.simpleforecast.forecastday[4].date.weekday;
+                  weather.day5 = data.forecast.simpleforecast.forecastday[5].date.weekday;
+                  weather.date1 = data.forecast.simpleforecast.forecastday[1].date.day + "/" + data.forecast.simpleforecast.forecastday[1].date.month + "/" + data.forecast.simpleforecast.forecastday[1].date.year;
+                  weather.date2 = data.forecast.simpleforecast.forecastday[2].date.day + "/" + data.forecast.simpleforecast.forecastday[2].date.month + "/" + data.forecast.simpleforecast.forecastday[2].date.year;
+                  weather.date3 = data.forecast.simpleforecast.forecastday[3].date.day + "/" + data.forecast.simpleforecast.forecastday[3].date.month + "/" + data.forecast.simpleforecast.forecastday[3].date.year;
+                  weather.date4 = data.forecast.simpleforecast.forecastday[4].date.day + "/" + data.forecast.simpleforecast.forecastday[4].date.month + "/" + data.forecast.simpleforecast.forecastday[4].date.year;
+                  weather.date5 = data.forecast.simpleforecast.forecastday[5].date.day + "/" + data.forecast.simpleforecast.forecastday[5].date.month + "/" + data.forecast.simpleforecast.forecastday[5].date.year;
+                  weather.icon1 = data.forecast.simpleforecast.forecastday[1].icon;
+                  weather.icon2 = data.forecast.simpleforecast.forecastday[2].icon;
+                  weather.icon3 = data.forecast.simpleforecast.forecastday[3].icon;
+                  weather.icon4 = data.forecast.simpleforecast.forecastday[4].icon;
+                  weather.icon5 = data.forecast.simpleforecast.forecastday[5].icon;
+                  weather.condi1 = data.forecast.simpleforecast.forecastday[1].conditions;
+                  weather.condi2 = data.forecast.simpleforecast.forecastday[2].conditions;
+                  weather.condi3 = data.forecast.simpleforecast.forecastday[3].conditions;
+                  weather.condi4 = data.forecast.simpleforecast.forecastday[4].conditions;
+                  weather.condi5 = data.forecast.simpleforecast.forecastday[5].conditions;
+                  weather.low1 = data.forecast.simpleforecast.forecastday[1].low.fahrenheit;
+                  weather.low2 = data.forecast.simpleforecast.forecastday[2].low.fahrenheit;
+                  weather.low3 = data.forecast.simpleforecast.forecastday[3].low.fahrenheit;
+                  weather.low4 = data.forecast.simpleforecast.forecastday[4].low.fahrenheit;
+                  weather.low5 = data.forecast.simpleforecast.forecastday[5].low.fahrenheit;
+                  weather.high1 = data.forecast.simpleforecast.forecastday[1].high.fahrenheit;
+                  weather.high2 = data.forecast.simpleforecast.forecastday[2].high.fahrenheit;
+                  weather.high3 = data.forecast.simpleforecast.forecastday[3].high.fahrenheit;
+                  weather.high4 = data.forecast.simpleforecast.forecastday[4].high.fahrenheit;
+                  weather.high5 = data.forecast.simpleforecast.forecastday[5].high.fahrenheit;
 
                   update(weather);
               });
@@ -119,30 +150,47 @@ function K2F (k) {
     return Math.round(k*(9/5)-459.67);
 }
 function update(weather) {
+  date.innerHTML = weather.date;
   loc.innerHTML = weather.loc;
   temp.innerHTML = weather.temp;
-  icon.innerHTML =  "<i id='weather-icon' class='wi wi-owm-" + weather.icon + "'></i>"; //"imgs/codes/" + weather.icon + ".png";
+  icon.innerHTML =  "<i id='weather-icon' class='wi wi-wu-" + weather.icon + "'></i>"; //"imgs/codes/" + weather.icon + ".png";
   humidity.innerHTML = weather.humidity;
   pressure.innerHTML = weather.pressure;
   description.innerHTML = weather.description;
   windSpeed.innerHTML = weather.windSpeed;
   windDirection.innerHTML = weather.windDirection;
-  date.innerHTML = weather.date;
-  icon1.innerHTML = "<i  id='icon12345' class='wi wi-owm-" + weather.icon1 + "'></i>";
-  icon2.innerHTML = "<i  id='icon12345' class='wi wi-owm-" + weather.icon2 + "'></i>";
-  icon3.innerHTML = "<i  id='icon12345' class='wi wi-owm-" + weather.icon3 + "'></i>";
-  icon4.innerHTML = "<i  id='icon12345' class='wi wi-owm-" + weather.icon4 + "'></i>";
-  icon5.innerHTML = "<i  id='icon12345' class='wi wi-owm-" + weather.icon5 + "'></i>";
-  temp1.innerHTML = weather.temp1;
-  temp2.innerHTML = weather.temp2;
-  temp3.innerHTML = weather.temp3;
-  temp4.innerHTML = weather.temp4;
-  temp5.innerHTML = weather.temp5;
-  dis1.innerHTML = weather.dis1;
-  dis2.innerHTML = weather.dis2;
-  dis3.innerHTML = weather.dis3;
-  dis4.innerHTML = weather.dis4;
-  dis5.innerHTML = weather.dis5;
+  day1.innerHTML = weather.day1;
+  day2.innerHTML = weather.day2;
+  day3.innerHTML = weather.day3;
+  day4.innerHTML = weather.day4;
+  day5.innerHTML = weather.day5;
+  date1.innerHTML = weather.date1;
+  date2.innerHTML = weather.date2;
+  date3.innerHTML = weather.date3;
+  date4.innerHTML = weather.date4;
+  date5.innerHTML = weather.date5;
+  condi1.innerHTML = weather.condi1;
+  condi2.innerHTML = weather.condi2;
+  condi3.innerHTML = weather.condi3;
+  condi4.innerHTML = weather.condi4;
+  condi5.innerHTML = weather.condi5;
+  icon1.innerHTML = "<i  id='icon12345' class='wi wi-wu-" + weather.icon1 + "'></i>";
+  icon2.innerHTML = "<i  id='icon12345' class='wi wi-wu-" + weather.icon2 + "'></i>";
+  icon3.innerHTML = "<i  id='icon12345' class='wi wi-wu-" + weather.icon3 + "'></i>";
+  icon4.innerHTML = "<i  id='icon12345' class='wi wi-wu-" + weather.icon4 + "'></i>";
+  icon5.innerHTML = "<i  id='icon12345' class='wi wi-wu-" + weather.icon5 + "'></i>";
+  low1.innerHTML = weather.low1;
+  low2.innerHTML = weather.low2;
+  low3.innerHTML = weather.low3;
+  low4.innerHTML = weather.low4;
+  low5.innerHTML = weather.low5;
+  high1.innerHTML = weather.high1;
+  high2.innerHTML = weather.high2;
+  high3.innerHTML = weather.high3;
+  high4.innerHTML = weather.high4;
+  high5.innerHTML = weather.high5;
+
+
 
 }
 
@@ -152,6 +200,7 @@ function showPosition(position) {
 
 }
 window.onload = function () {
+    date = document.getElementById('date');
     temp = document.getElementById('temperature');
     loc = document.getElementById('location');
     icon = document.getElementById('icon');
@@ -160,22 +209,37 @@ window.onload = function () {
     pressure = document.getElementById("pressure");
     windSpeed = document.getElementById('windSpeed');
     windDirection = document.getElementById('windDirection');
-    date = document.getElementById('date');
+    day1 = document.getElementById('day1');
+    day2 = document.getElementById('day2');
+    day3 = document.getElementById('day3');
+    day4 = document.getElementById('day4');
+    day5 = document.getElementById('day5');
+    date1 = document.getElementById('date1');
+    date2 = document.getElementById('date2');
+    date3 = document.getElementById('date3');
+    date4 = document.getElementById('date4');
+    date5 = document.getElementById('date5');
     icon1 = document.getElementById('icon1');
     icon2 = document.getElementById('icon2');
     icon3 = document.getElementById('icon3');
     icon4 = document.getElementById('icon4');
     icon5 = document.getElementById('icon5');
-    temp1 = document.getElementById('temp1');
-    temp2 = document.getElementById('temp2');
-    temp3 = document.getElementById('temp3');
-    temp4 = document.getElementById('temp4');
-    temp5 = document.getElementById('temp5');
-    dis1 = document.getElementById('dis1');
-    dis2 = document.getElementById('dis2');
-    dis3 = document.getElementById('dis3');
-    dis4 = document.getElementById('dis4');
-    dis5 = document.getElementById('dis5');
+    condi1 = document.getElementById('condi1');
+    condi2 = document.getElementById('condi2');
+    condi3 = document.getElementById('condi3');
+    condi4 = document.getElementById('condi4');
+    condi5 = document.getElementById('condi5');
+    low1 = document.getElementById('low1');
+    low2 = document.getElementById('low2');
+    low3 = document.getElementById('low3');
+    low4 = document.getElementById('low4');
+    low5 = document.getElementById('low5');
+    high1 = document.getElementById('high1');
+    high2 = document.getElementById('high2');
+    high3 = document.getElementById('high3');
+    high4 = document.getElementById('high4');
+    high5 = document.getElementById('high5');
+
 
 
 
