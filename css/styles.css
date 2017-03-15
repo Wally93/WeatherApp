@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 
 #logo {
   width: 200px;
@@ -17,7 +20,7 @@ button {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  border-color: #111;
+  border-color: #00b386;
   border-radius: 35px; /* (height/2) + border-width */
   border-style: solid;
   border-width: 5px;
@@ -33,6 +36,7 @@ button {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+
 }
 
 .nav {
@@ -53,15 +57,15 @@ button {
 }
 
 
-.weather-app {
+
+
+#weather {
     background-image: url("../imgs/background-images/day.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
-
-
-
+    color: white;
+    font-family: "Times New Roman", Times, serif;
 }
 
 #icon  i {
@@ -71,7 +75,7 @@ button {
   width: 100%;
   margin: auto;
   font-size: 250px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .search{
@@ -104,7 +108,7 @@ button {
   -webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
-	border-color: #888;
+	border-color: #00b386;
   border-radius: 35px; /* (height/2) + border-width */
   border-style: solid;
 	border-width: 5px;
@@ -123,12 +127,6 @@ button {
 }
 
 
-.weather-app {
-color: white;
-font-family: "Times New Roman", Times, serif;
-}
-
-
 .temperature {
   position: relative;
   top: 25px;
@@ -138,7 +136,12 @@ font-family: "Times New Roman", Times, serif;
   font-size: 60px;
   opacity: 0.85;
   text-align: center;
+  margin-top: 30px;
 }
+
+
+
+
 
 #location {
   position: center;
@@ -153,13 +156,19 @@ font-family: "Times New Roman", Times, serif;
 .location {
   position: relative;
   text-align: center;
-    top: -18px
+  margin-bottom: 75px;
+
 }
 
-#bar {
-  style: bold;
-  font-size: 60%;
+
+
+#section1 {
+  padding-top: 50px;
+
 }
+
+
+
 
 
 .pressure  {
@@ -168,18 +177,18 @@ font-family: "Times New Roman", Times, serif;
 
 }
 
-#humidity, #pressure, #windSpeed, #wind-direction, #unit {
+#humidity, #pressure, #windSpeed, #wind-direction, #unit, #visibility, #uv , #feelslike, #dewpoint {
   font-size: 35px;
 }
 
-.humidity-description, .pressure-description, .speed-description, .direction-description {
+.humidity-description, .pressure-description, .speed-description, .direction-description, .visibility-description, .uv-description, .feelslike-description, .dewpoint-description {
     font-size: 35px;
     padding-left: 18px;
 }
 
 
 
-.humidity {
+.humidity, .wind-speed, .feelslike. .uv, .dewpoint{
   width: 60px;
   height: 60px;
 }
@@ -189,29 +198,103 @@ font-family: "Times New Roman", Times, serif;
 
 }
 
-.wind-speed {
-  width: 60px;
-  height: 60px;
-
-}
-
 .wind-direction {
   width: 55px;
   height: 55px;
 }
 
+.visibility {
+  width: 55px;
+  height: 55px;
+}
+
+
 ul {
     list-style-type: none;
+    padding-left: 20px;
 
 }
 
-.verticalLine {
+
+.verticalLine1, .verticalLine2 {
 border-left: thick solid #ddd;
-border-left-width: 10px;
+border-left-width: 5px;
+padding-left: 10px;
+display: inline-block;
+float: right;
+margin-right: 15px;
+}
+
+
+#cudis {
+  margin: auto;
+    width: 90%;
+}
+
+#days {
+  margin: auto;
+    width: 90%;
+
+
+}
+
+#vertical2, #vertical3, #vertical4 {
+  display: inline-block;
+  border-left: thick solid #ddd;
+  border-left-width: 5px;
+  padding-right: 10px;
+
+}
+#vertical1 {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+#vertical5 {
+  display: inline-block;
+  border-left: thick solid #ddd;
+  border-left-width: 5px;
+  border-right: thick solid #ddd;
+  border-right-width: 5px;
+  padding-right: 10px;
+
+}
+
+
+#day1, #day2, #day3, #day4, #day5 {
+  padding-bottom: 5px;
+  text-align: center;
+}
+#date1, #date2, #date3, #date4, #date5 {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#icon1, #icon2, #icon3, #icon4, #icon5 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+#condi1, #condi2, #condi3, #condi4, #condi5 {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.lowdis {
+  padding-right: 20px;
+}
+.highdis {
+  padding-left: 20px;
 }
 
 #date {
     font-size: 50px;
+    opacity: 0.5;
+
+}
+
+.today-date {
+  text-align: center;
 }
 
 #icon12345 {
@@ -221,4 +304,48 @@ border-left-width: 10px;
 #form {
   margin: auto;
   position: static;
+}
+
+#low1, #low2, #low3, #low4, #low5 {
+  padding-right: 40px;
+  padding-left: 8px;
+
+}
+
+#high1, #high2, #high3, #high4, #high5 {
+  padding-left: 20px;
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 500px) {
+  #cudis {
+    display: block;
+    width: 90%;
+
+  }
+
+  #days {
+    display: block;
+    width: 90%;
+
+  }
+
+  #vertical1, #vertical2, #vertical3, #vertical4, #vertical5 {
+    border: 5px solid white;
+    width: 30%;
+    height: 30%;
+
+  body {
+    font-size-adjust: 0.58;
+  }
+
+  }
+
+
+
+
+
+
+
 }

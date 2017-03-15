@@ -1,9 +1,10 @@
-
+<!DOCTYPE html>
 <html lang= "en">
   <head>
-          <meta charset="UTF-8">
-          <title>Weather App</title>
 
+          <title>Weather App</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
           <link rel="stylesheet" href="css/normalize.css">
           <link rel="stylesheet" type="text/css" href="css/styles.css" />
           <link rel="stylesheet" href="css/weather-icons.css">
@@ -17,108 +18,157 @@
           <script type="text/javascript" src="javascript/app.js"></script>
   </head>
 
-  <body>
+  <body id="weather">
 
-    <ul class="ul">
-     <li class="nav"><img id = "logo" src="imgs/logo.png" alt="Logo"></li>
-    <form id="form" action="#" class="flexsearch--form" onsubmit="updateByCity() ; return false">
-     <li class="nav"><input  id="search" class="flexsearch--input" type="search" placeholder="country or state"></li>
-     <li class="nav"><input  id="search" class="flexsearch--input" type="search" placeholder="city or zipcode"></li>
-     <li class="nav"><button type="button" name="button"></button></li>
-   </form>
+                  <ul class="ul">
+                   <li class="nav"><img id = "logo" src="imgs/logo.png" alt="Logo"></li>
+                  <form id="form" action="#" class="flexsearch--form" onsubmit="updateByCity() ; return false">
+                   <li class="nav"><input  id="search1" class="flexsearch--input" type="search" placeholder="country or state"></li>
+                   <li class="nav"><input  id="search2" class="flexsearch--input" type="search" placeholder="city or zipcode"></li>
+                   <li class="nav"><button type="button" name="button" onclick="updateByCity()"></button></li>
+                 </form>
 
-     </ul>
+                   </ul>
 
-    <div class="weather-app">
+   <div class="weather-app">
 
+                        <div class="today-date"><span id = "date">date</span></div>
 
-          	    <div class="location"><span id="location">Unknown</span></div>
+                            	    <div class="location"><span id="location">Unknown</span></div>
 
-                <div id="icon"></div>
+                                  <div id="icon"></div>
 
-                <div class="temperature"><span id="temperature">0</span>&deg;&nbsp|&nbsp<span id="description"> description</span></div>
-                <div class="search">
-                      <form id="form" action="#" class="flexsearch--form" onsubmit="updateByCity() ; return false">
-                                   <input  id="search" class="flexsearch--input" type="search" placeholder="search state/city or even a zipcode!">
-                     </form>
-                </div>
-           <section>
+                                  <div class="temperature"><span id="temperature">0</span>&deg;<span> F</span>&nbsp|&nbsp<span id="description"> description</span></div>
 
+             <section id = "section1">
+                    <div id = 'cudis'>
+                        <div class="verticalLine1">
+                               <ul id = "right">
+                                     <li class="visibility1">
+                                             <img  class ="visibility" src="imgs/visibility.png" >
+                                             <span class ="visibility-description">Visibility: </span>
+                                             <span id="visibility"></span>
+                                     </li>
 
+                                       <li class= "uv1">
+                                                 <img  class ="uv" src="imgs/uv.png" >
+                                                 <span class = "uv-description">UV: </span>
+                                                <span id="uv"></span>
+                                       </li>
 
-                  <div class="verticalLine">
-                        <ul>
-                      <li class="humidity1">
-                              <img  class ="humidity" src="imgs/humitity.png" >
-                              <span class ="humidity-description">Humitity: </span>
-                              <span id="humidity">0</span>%
-                    	</li>
+                                       <li id="feelslike1">
+                                                 <img  class ="feelslike" src="imgs/feelslike.png" >
+                                                 <span class = "feelslike-description">Feelslike: </span>
+                                                <span id="feelslike"></span> <span id = "unit">&deg; F</span>
+                                       </li>
 
-                      <li class= "pressure1">
-                                <img  class ="pressure" src="imgs/pressure.png" >
-                                <span class = "pressure-description">Pressure: </span>
-                               <span id="pressure"></span>
-                      </li>
+                                       <li id= "dewpoint1">
+                                               <img  class ="dewpoint" src="imgs/dewpoint.png" >
+                                               <span class = "dewpoint-description">DewPoint: </span>
+                                               <span id="dewpoint"></span> <span id = "unit">&deg; F</span>
+                                       </li>
+                             </ul>
+                    </div>
+                               <div class="verticalLine2">
+                                           <ul id ="left">
 
-                      <li id="wind-speed">
-                                <img  class ="wind-speed" src="imgs/wind-speed.png" >
-                                <span class = "speed-description">Wind Speed: </span>
-                               <span id="windSpeed">0</span> <span id = "unit"> mph</span>
-                      </li>
+                                                <li class="humidity1">
+                                                        <img  class ="humidity" src="imgs/humitity.png" >
+                                                        <span class ="humidity-description">Humitity: </span>
+                                                        <span id="humidity">0</span>
+                                              	</li>
 
-                      <li id= "wind-direction">
-                              <img  class ="wind-direction" src="imgs/wind-direction.png" >
-                              <span class = "direction-description">Wind Direction: </span>
-                              <span id="windDirection"></span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div><span id = "date">date</span></div>
-                      <div>
-                            <ul>
-                                  <li id ="3h">Next 3h</li>
-                                  <li id = "icon1"></li>
-                                  <li><span>Clear Sky</span></li>
-                                  <li><span id = "temp1">35</span></li>
-                            </ul>
+                                                <li class= "pressure1">
+                                                          <img  class ="pressure" src="imgs/pressure.png" >
+                                                          <span class = "pressure-description">Pressure: </span>
+                                                         <span id="pressure"></span>
+                                                </li>
+
+                                                <li id="wind-speed">
+                                                          <img  class ="wind-speed" src="imgs/wind-speed.png" >
+                                                          <span class = "speed-description">Wind Speed: </span>
+                                                         <span id="windSpeed">0</span> <span id = "unit"></span>
+                                                </li>
+
+                                                <li id= "wind-direction">
+                                                        <img  class ="wind-direction" src="imgs/wind-direction.png" >
+                                                        <span class = "direction-description">Wind Direction: </span>
+                                                        <span id="windDirection"></span>
+                                                </li>
+                                          </ul>
+                             </div>
                       </div>
-                      <div>
-                        <ul>
-                              <li id ="6h">Next 6h</li>
-                              <li id = "icon2"></li>
-                              <li><span id = "dis2">Clear Sky</span></li>
-                              <li><span id = "temp2">35</span></li>
-                        </ul>
-                      </div>
-                      <div>
-                        <ul>
-                              <li id ="12h">Next 12h</li>
-                              <li id = "icon3"></li>
-                              <li><span id = "dis3">Clear Sky</span></li>
-                              <li><span id = "temp3"></span>35</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <ul>
-                              <li id ="24h">Next 24h</li>
-                              <li id = "icon4"></li>
-                              <li><span id = "dis4">Clear Sky</span></li>
-                              <li><span id = "temp4">35</span></li>
-                        </ul>
-                      </div>
-                      <div>
-                        <ul>
-                              <li id ="48h">Next 48h</li>
-                              <li id = "icon5"></li>
-                              <li><span id = "dis5">Clear Sky</span></li>
-                              <li><span id = "temp5">35</span></li>
-                        </ul>
-                      </div>
-                      <div id="latitude"></div>
-                      <div id="longitude"></div>
-          </section>
+                                    <div id = "days">
+                                        <div id="vertical1">
+                                              <ul class = "dayul">
 
-    </div>
+                                                    <li id ="day1">day1</li>
+                                                    <li id = "date1">date1</li>
+                                                    <li id = "icon1">icon1</li>
+                                                    <li id = "condi1">condition1</li>
+                                                    <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                    <li><span id = "low1">0</span><span id = "high1">0</span></li>
 
+                                              </ul>
+                                        </div>
+                                        <div id = "vertical2">
+                                                <ul class = "dayul">
+
+                                                      <li id ="day2">day2</li>
+                                                      <li id = "date2">date2</li>
+                                                      <li id = "icon2">icon2</li>
+                                                      <li id = "condi2">condition2</li>
+                                                      <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                      <li><span id = "low2">0</span><span id = "high2">0</span></li>
+
+                                                </ul>
+                                        </div>
+                                        <div id = "vertical3">
+                                                <ul class = "dayul">
+
+                                                      <li id ="day3">day3</li>
+                                                      <li id = "date3">date3</li>
+                                                      <li id = "icon3">icon3</li>
+                                                      <li id = "condi3">condition3</li>
+                                                      <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                      <li><span id = "low3">0</span><span id = "high3">0</span></li>
+
+                                                </ul>
+                                        </div>
+                                        <div id = "vertical4">
+                                                <ul class = "dayul">
+
+                                                      <li id ="day4">day4</li>
+                                                      <li id = "date4">date4</li>
+                                                      <li id = "icon4">icon4</li>
+                                                      <li id = "condi4">condition4</li>
+                                                      <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                      <li><span id = "low4">0</span><span id = "high4">0</span></li>
+
+                                                </ul>
+                                        </div>
+                                        <div id = "vertical5">
+                                                <ul class = "dayul">
+
+                                                      <li id ="day5">day5</li>
+                                                      <li id = "date5">date5</li>
+                                                      <li id = "icon5">icon5</li>
+                                                      <li id = "condi5">condition5</li>
+                                                      <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                      <li><span id = "low5">0</span><span id = "high5">0</span></li>
+
+
+                                                </ul>
+
+                                        </div>
+
+
+                             </div>
+
+
+                     </section>
+
+
+         </div>
   </body>
 </html>
