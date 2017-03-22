@@ -3,15 +3,19 @@
  =======****  Weather App ****=======
 
 #project description:
+
 Wally-weather is a front-end project that was built using HTML, CSS, JavaScript, and Weather Underground API. it's a simple yet elegant app that delivers accurate weather information from around the globe!
 
-#Getting Started
+#Getting Started:
+
 This is a front-end project, therefore all you need is up to date browser
 
-#Prerequisites
+#Prerequisites:
+
 No Prerequisites
 
 #Built With:
+
 =====*****   HTML - CSS - Javascript - jquery - Bootstrap - Weather underground API - Weather icons    *****=====
 The weather icons were used under a license from https://erikflowers.github.io/weather-icons/. { This project is no longer maintained, therefore I'm currently looking for an alternative}.
 Weather underground API is used to get up-to-date weather forecast,  Jquery is used for handling the AJAX requests.
@@ -20,15 +24,19 @@ Bootstrap framework was only used for the footer an the weather icons, {The resp
 
 
 #Versioning:
+
 We use SemVer for versioning. For the versions available, see the tags on this repository.
 
 #Developers:
+
 Wally Jniyah.
 
-#License
+#License:
+
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-#Acknowledgments
+#Acknowledgments:
+
 Hat tip to anyone who's code was used
 Inspiration
 etc
