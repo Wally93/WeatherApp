@@ -3,12 +3,14 @@
   <head>
 
           <title>Weather App</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="css/normalize.css">
-          <link rel="stylesheet" type="text/css" href="css/styles.css" />
+          <link rel='stylesheet' media='screen and (max-width: 900px)' href='css/mobile.css' />
+          <link rel='stylesheet' media='screen and (min-width: 901px)' href='css/desktop.css' />
           <link rel="stylesheet" href="css/weather-icons.css">
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <!-- footer styling -->
+          <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
           <!-- Latest compiled and minified CSS -->
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
           <!-- Optional theme -->
@@ -16,19 +18,11 @@
           <!-- Latest compiled and minified JavaScript -->
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
           <script type="text/javascript" src="javascript/app.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
   </head>
 
   <body id="weather">
-
-                  <ul class="ul">
-                   <li class="nav"><img id = "logo" src="imgs/logo.png" alt="Logo"></li>
-                  <form id="form" action="#" class="flexsearch--form" onsubmit="updateByCity() ; return false">
-                   <li class="nav"><input  id="search1" class="flexsearch--input" type="search" placeholder="country or state"></li>
-                   <li class="nav"><input  id="search2" class="flexsearch--input" type="search" placeholder="city or zipcode"></li>
-                   <li class="nav"><button type="button" name="button" onclick="updateByCity()"></button></li>
-                 </form>
-
-                   </ul>
 
    <div class="weather-app">
 
@@ -38,10 +32,19 @@
 
                                   <div id="icon"></div>
 
-                                  <div class="temperature"><span id="temperature">0</span>&deg;<span> F</span>&nbsp|&nbsp<span id="description"> description</span></div>
+                                  <div class="temperature"><span id="temperature">0</span>&deg;<span> F</span>&nbsp<span id="description"> description</span></div>
 
-             <section id = "section1">
-                    <div id = 'cudis'>
+                       <div id="searchbar">
+                         <form id="form" action="#" class="flexsearch--form" onsubmit="updateByCity() ; return false">
+
+                          <div class="nav1"><input  id="search1" class="flexsearch--input" type="search" placeholder="country or state"></div>
+                          <div class="nav2"><input  id="search2" class="flexsearch--input" type="search" placeholder="city or zipcode"></div>
+                          <div class="nav3"><button id="search3" type="button" name="button" onclick="updateByCity()"></button></div>
+                        </ul>
+                        </form>
+
+                       </div>
+
                         <div class="verticalLine1">
                                <ul id = "right">
                                      <li class="visibility1">
@@ -69,7 +72,7 @@
                                        </li>
                              </ul>
                     </div>
-                               <div class="verticalLine2">
+                    <div class="verticalLine2">
                                            <ul id ="left">
 
                                                 <li class="humidity1">
@@ -97,7 +100,7 @@
                                                 </li>
                                           </ul>
                              </div>
-                      </div>
+
                                     <div id = "days">
                                         <div id="vertical1">
                                               <ul class = "dayul">
@@ -166,9 +169,57 @@
                              </div>
 
 
-                     </section>
 
 
          </div>
+         <footer class="footer-distributed">
+
+         			<div class="footer-left">
+
+         				<h3><img id = "logo" src="imgs/logo.png" alt="Logo"></h3>
+
+         				<p class="footer-company-name">Wally-weather &copy; 2017</p>
+         			</div>
+
+         			<div class="footer-center">
+
+         				<div>
+         					<i class="fa fa-map-marker"></i>
+         					<p><span>Louisville</span> Kentucky, USA</p>
+         				</div>
+
+         				<div>
+         					<i class="fa fa-phone"></i>
+         					<p>+1 502-466-5244</p>
+         				</div>
+
+         				<div>
+         					<i class="fa fa-envelope"></i>
+         					<p><a href="mailto:ojniyah@gmail.com">ojniyah@gmail.comm</a></p>
+         				</div>
+
+         			</div>
+
+         			<div class="footer-right">
+
+         				<p class="footer-company-about">
+         					<span>About the App:</span>
+         					Wally-weather is a front-end project that was built using HTML, CSS, JavaScript, and Weather Underground API. it's a simple yet elegant app that delivers accurate weather information from around the globe!
+         				</p>
+
+         				<div class="footer-icons">
+
+         					<a href="https://www.facebook.com/wallyedward.wniyah"><i class="fa fa-facebook"></i></a>
+         					<a href="https://twitter.com/WJniyah"><i class="fa fa-twitter"></i></a>
+         					<a href="https://www.linkedin.com/in/oualid-jniyah-306362136/"><i class="fa fa-linkedin"></i></a>
+         					<a href="https://github.com/Wally93"><i class="fa fa-github"></i></a>
+
+         				</div>
+                <p class="footer-company-name">Wally-weather &copy; 2017</p>
+         			</div>
+
+         		</footer>
+
   </body>
+
 </html>
