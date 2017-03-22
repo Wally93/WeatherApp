@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang= "en">
+  <head>
+
+          <title>Weather App</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="css/normalize.css">
+          <link rel='stylesheet' media='screen and (max-width: 900px)' href='css/mobile.css' />
+          <link rel='stylesheet' media='screen and (min-width: 901px)' href='css/desktop.css' />
+          <link rel="stylesheet" href="css/weather-icons.css">
+          <!-- footer styling -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	        <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+          <!-- Latest compiled and minified CSS -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          <!-- Optional theme -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+          <!-- Latest compiled and minified JavaScript -->
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <script type="text/javascript" src="javascript/app.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  </head>
+
+  <body id="weather">
+
+   <div class="weather-app">
+
+                        <div class="today-date"><span id = "date">date</span></div>
+
+                            	    <div class="location"><span id="location">Unknown</span></div>
+
+                                  <div id="icon"></div>
+
+                                  <div class="temperature"><span id="temperature">0</span>&deg;<span> F</span>&nbsp<span id="description"> description</span></div>
+
+                       <div id="searchbar">
+                         <form id="form" action="#" class="flexsearch--form" onsubmit="updateByCity() ; return false">
+
+                          <div class="nav1"><input  id="search1" class="flexsearch--input" type="search" placeholder="country or state"></div>
+                          <div class="nav2"><input  id="search2" class="flexsearch--input" type="search" placeholder="city or zipcode"></div>
+                          <div class="nav3"><button id="search3" type="button" name="button" onclick="updateByCity()"></button></div>
+                        </ul>
+                        </form>
+
+                       </div>
+
+                        <div class="verticalLine1">
+                               <ul id = "right">
+                                     <li class="visibility1">
+                                             <img  class ="visibility" src="imgs/visibility.png" >
+                                             <span class ="visibility-description">Visibility: </span>
+                                             <span id="visibility"></span>
+                                     </li>
+
+                                       <li class= "uv1">
+                                                 <img  class ="uv" src="imgs/uv.png" >
+                                                 <span class = "uv-description">UV: </span>
+                                                <span id="uv"></span>
+                                       </li>
+
+                                       <li id="feelslike1">
+                                                 <img  class ="feelslike" src="imgs/feelslike.png" >
+                                                 <span class = "feelslike-description">Feelslike: </span>
+                                                <span id="feelslike"></span> <span id = "unit">&deg; F</span>
+                                       </li>
+
+                                       <li id= "dewpoint1">
+                                               <img  class ="dewpoint" src="imgs/dewpoint.png" >
+                                               <span class = "dewpoint-description">DewPoint: </span>
+                                               <span id="dewpoint"></span> <span id = "unit">&deg; F</span>
+                                       </li>
+                             </ul>
+                    </div>
+                    <div class="verticalLine2">
+                                           <ul id ="left">
+
+                                                <li class="humidity1">
+                                                        <img  class ="humidity" src="imgs/humitity.png" >
+                                                        <span class ="humidity-description">Humitity: </span>
+                                                        <span id="humidity">0</span>
+                                              	</li>
+
+                                                <li class= "pressure1">
+                                                          <img  class ="pressure" src="imgs/pressure.png" >
+                                                          <span class = "pressure-description">Pressure: </span>
+                                                         <span id="pressure"></span>
+                                                </li>
+
+                                                <li id="wind-speed">
+                                                          <img  class ="wind-speed" src="imgs/wind-speed.png" >
+                                                          <span class = "speed-description">Wind Speed: </span>
+                                                         <span id="windSpeed">0</span> <span id = "unit"></span>
+                                                </li>
+
+                                                <li id= "wind-direction">
+                                                        <img  class ="wind-direction" src="imgs/wind-direction.png" >
+                                                        <span class = "direction-description">Wind Direction: </span>
+                                                        <span id="windDirection"></span>
+                                                </li>
+                                          </ul>
+                             </div>
+
+                                    <div id = "days">
+                                        <div id="vertical1">
+                                              <ul class = "dayul">
+
+                                                    <li id ="day1">day1</li>
+                                                    <li id = "date1">date1</li>
+                                                    <li id = "icon1">icon1</li>
+                                                    <li id = "condi1">condition1</li>
+                                                    <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                    <li><span id = "low1">0</span><span id = "high1">0</span></li>
+
+                                              </ul>
+                                        </div>
+                                        <div id = "vertical2">
+                                                <ul class = "dayul">
+
+                                                      <li id ="day2">day2</li>
+                                                      <li id = "date2">date2</li>
+                                                      <li id = "icon2">icon2</li>
+                                                      <li id = "condi2">condition2</li>
+                                                      <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                      <li><span id = "low2">0</span><span id = "high2">0</span></li>
+
+                                                </ul>
+                                        </div>
+                                        <div id = "vertical3">
+                                                <ul class = "dayul">
+
+                                                      <li id ="day3">day3</li>
+                                                      <li id = "date3">date3</li>
+                                                      <li id = "icon3">icon3</li>
+                                                      <li id = "condi3">condition3</li>
+                                                      <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                      <li><span id = "low3">0</span><span id = "high3">0</span></li>
+
+                                                </ul>
+                                        </div>
+                                        <div id = "vertical4">
+                                                <ul class = "dayul">
+
+                                                      <li id ="day4">day4</li>
+                                                      <li id = "date4">date4</li>
+                                                      <li id = "icon4">icon4</li>
+                                                      <li id = "condi4">condition4</li>
+                                                      <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                      <li><span id = "low4">0</span><span id = "high4">0</span></li>
+
+                                                </ul>
+                                        </div>
+                                        <div id = "vertical5">
+                                                <ul class = "dayul">
+
+                                                      <li id ="day5">day5</li>
+                                                      <li id = "date5">date5</li>
+                                                      <li id = "icon5">icon5</li>
+                                                      <li id = "condi5">condition5</li>
+                                                      <li><span class = "lowdis">LOW</span><span class = "highdis">HIGH</span></li>
+                                                      <li><span id = "low5">0</span><span id = "high5">0</span></li>
+
+
+                                                </ul>
+
+                                        </div>
+
+
+                             </div>
+
+
+
+
+         </div>
+         <footer class="footer-distributed">
+
+         			<div class="footer-left">
+
+         				<h3><img id = "logo" src="imgs/logo.png" alt="Logo"></h3>
+
+         				<p class="footer-company-name">Wally-weather &copy; 2017</p>
+         			</div>
+
+         			<div class="footer-center">
+
+         				<div>
+         					<i class="fa fa-map-marker"></i>
+         					<p><span>Louisville</span> Kentucky, USA</p>
+         				</div>
+
+         				<div>
+         					<i class="fa fa-phone"></i>
+         					<p>+1 502-466-5244</p>
+         				</div>
+
+         				<div>
+         					<i class="fa fa-envelope"></i>
+         					<p><a href="mailto:ojniyah@gmail.com">ojniyah@gmail.comm</a></p>
+         				</div>
+
+         			</div>
+
+         			<div class="footer-right">
+
+         				<p class="footer-company-about">
+         					<span>About the App:</span>
+         					Wally-weather is a front-end project that was built using HTML, CSS, JavaScript, and Weather Underground API. it's a simple yet elegant app that delivers accurate weather information from around the globe!
+         				</p>
+
+         				<div class="footer-icons">
+
+         					<a href="https://www.facebook.com/wallyedward.wniyah"><i class="fa fa-facebook"></i></a>
+         					<a href="https://twitter.com/WJniyah"><i class="fa fa-twitter"></i></a>
+         					<a href="https://www.linkedin.com/in/oualid-jniyah-306362136/"><i class="fa fa-linkedin"></i></a>
+         					<a href="https://github.com/Wally93"><i class="fa fa-github"></i></a>
+
+         				</div>
+                <p class="footer-company-name">Wally-weather &copy; 2017</p>
+         			</div>
+
+         		</footer>
+
+  </body>
+
+</html>
