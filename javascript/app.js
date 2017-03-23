@@ -52,7 +52,7 @@ var condi5;
 
 
 function updateByGeo(lat, lon) {
-  var url = "http://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + lat + "," + lon +".json";
+  var url = "https://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + lat + "," + lon +".json";
   sendRequest(url) ;
 }
 
@@ -61,7 +61,7 @@ function updateByCity() {
   var input1 = $("#search1").val();
   var input2 = $("#search2").val();
   if (isNaN(input2)) {
-    var url = "http://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input1 + "/" + input2 +".json";
+    var url = "https://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input1 + "/" + input2 +".json";
      sendRequest(url);
      document.getElementById("search1").value = "";
      document.getElementById("search2").value = "";
@@ -73,7 +73,7 @@ function updateByCity() {
 }
 function updateByZip() {
     input2 = $("#search2").val();
-  var url = "http://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input2 +".json";
+  var url = "https://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input2 +".json";
      sendRequest(url);
      document.getElementById("search1").value = "";
      document.getElementById("search2").value = "";
