@@ -18,7 +18,7 @@ button {
     height: 2.5vw;
     width:  8%;
     margin: auto;
-    background-image:url("../imgs/Search.png");
+    background-image:url("../imgs/search.png");
     background-repeat:no-repeat;
     background-position: center;
     text-align: center;
@@ -413,5 +413,3 @@ button {
     margin-right: 50px;
     margin-left: 15px;
   }
-
-  
