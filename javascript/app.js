@@ -1,5 +1,4 @@
-
-/* ---declaring my cariables--- */
+/* ---declaring my variables--- */
 var temp;
 var loc;
 var icon;
@@ -45,35 +44,6 @@ var condi4;
 var condi5;
 
 
-/* different type of API request */
-function updateByGeo(lat, lon) {
-  var url = "https://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + lat + "," + lon +".json";
-  sendRequest(url) ;
-}
-function showPosition(position) {
-     updateByGeo(position.coords.latitude, position.coords.longitude);
-}
-
-function updateByCity() {
-  var input1 = $("#search1").val();
-  var input2 = $("#search2").val();
-  if (isNaN(input2)) {
-    var url = "https://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input1 + "/" + input2 +".json";
-     sendRequest(url);
-     document.getElementById("search1").value = "";
-     document.getElementById("search2").value = "";
-  } else {
-    updateByZip();
-  }
-}
-
-function updateByZip() {
-    input2 = $("#search2").val();
-  var url = "https://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input2 +".json";
-     sendRequest(url);
-     document.getElementById("search1").value = "";
-     document.getElementById("search2").value = "";
-   }
 
    /* assigne an html element to the variable declared above */
    window.onload = function () {
@@ -121,18 +91,48 @@ function updateByZip() {
        high4 = document.getElementById('high4');
        high5 = document.getElementById('high5');
 
-
-
-
          /* get the user's geolocation */
            if (navigator.geolocation) {
                   navigator.geolocation.getCurrentPosition(showPosition);
-
-
            } else {
                  alert("Can't detect your location! please search it!");
            }
    };
+
+
+   /* getting the latitude and longitude of the user */
+   function showPosition(position) {
+        updateByGeo(position.coords.latitude, position.coords.longitude);
+   }
+
+
+   /* API request */
+   function updateByGeo(lat, lon) {
+     var url = "https://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + lat + "," + lon +".json";
+     sendRequest(url) ;
+   }
+
+   function updateByCity() {
+     var input1 = $("#search1").val();
+     var input2 = $("#search2").val();
+     if (isNaN(input2)) {
+       var url = "https://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input1 + "/" + input2 +".json";
+        sendRequest(url);
+        document.getElementById("search1").value = "";
+        document.getElementById("search2").value = "";
+     } else {
+       updateByZip();
+     }
+   }
+
+   function updateByZip() {
+       input2 = $("#search2").val();
+     var url = "https://api.wunderground.com/api/ede16bc77bd1d307/conditions/forecast10day/q/" + input2 +".json";
+        sendRequest(url);
+        document.getElementById("search1").value = "";
+        document.getElementById("search2").value = "";
+      }
+
 
    /* inner the weather API  json information into the variable declared above */
    function update(weather) {
